@@ -6,6 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    Hola Mundo!
+    <button id="checkout">Pay</button>
+
+    <script>
+        const button = document.getElementById('checkout')
+        button.addEventListener('click', async() => {
+            const res = await fetch('/pay/create-checkout-session', {
+                method: 'POST'
+            })
+            const data = await res.json()
+            // console.log(data)
+            window.location.href = data.url
+        })
+    </script>
+
 </body>
 </html>
