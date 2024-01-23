@@ -3,6 +3,7 @@ import router from './routers/payments.router.js'
 
 const app = express()
 
+app.use(express.static('./src/public'))
 app.get('/', (req, res) => res.json({ status: 'ok' }))
 app.use('/pay', router)
 
